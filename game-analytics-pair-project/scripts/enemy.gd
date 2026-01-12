@@ -20,7 +20,17 @@ func _ready() -> void:
 func _process(delta: float) -> void:
 	if target == null:
 		return
-		
+	
+	if position.x < -32.0:
+		position.x = 1184.0
+	if position.x > 1184.0:
+		position.x = -32.0
+	if position.y < -32.0:
+		position.y = 680.0
+	if position.y > 680.0:
+		position.y = -32.0
+	
+	
 	if global_position.distance_to(target.global_position) < slow_distance:
 		speed -= 0.1
 		if speed < speed * 0.7:

@@ -25,4 +25,7 @@ func _on_area_2d_body_entered(body: Node2D) -> void:
 			#print(enemy_instance.global_position.distance_to(body.global_position))
 			enemy_instance.position = Vector2(randi() % 1052 + 50, randi() % 548 + 50)
 		get_parent().add_child.call_deferred(enemy_instance)
+		
+		$"../Timer".start()
+		get_parent().increase_score()
 	

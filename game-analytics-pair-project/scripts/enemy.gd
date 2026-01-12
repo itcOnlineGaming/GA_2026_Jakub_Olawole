@@ -45,7 +45,9 @@ func _process(delta: float) -> void:
 
 func _on_area_2d_body_entered(body: Node2D) -> void:
 	if body.is_in_group("Player"):
-		get_tree().quit()
+		$"../CanvasLayer/GameOver".visible = true
+		get_parent().calculate_highscore()
+		get_tree().paused = true
 
 
 func _on_enemy_timer_timeout() -> void:

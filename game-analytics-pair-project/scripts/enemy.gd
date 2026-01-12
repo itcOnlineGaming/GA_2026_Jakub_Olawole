@@ -1,11 +1,14 @@
 extends CharacterBody2D
 
 #Target node to follow
-@export var target: CharacterBody2D
+var target: CharacterBody2D
 
 @export var speed = 100.0
 @export var slow_distance = 50.0
 
+func _ready() -> void:
+	target = $"../Player"
+	
 
 func _process(delta: float) -> void:
 	if target == null:
@@ -24,4 +27,5 @@ func _process(delta: float) -> void:
 
 
 func _on_area_2d_body_entered(body: Node2D) -> void:
-	pass # Replace with function body.
+	if body.is_in_group("Player"):
+		get_tree().quit()

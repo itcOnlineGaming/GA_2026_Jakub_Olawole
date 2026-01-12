@@ -1,8 +1,8 @@
 [gd_scene load_steps=4 format=3 uid="uid://ctgiu530qkodh"]
 
 [ext_resource type="PackedScene" uid="uid://diyboojc6e6wx" path="res://player.tscn" id="1_80nbo"]
-[ext_resource type="Script" path="res://game.gd" id="1_fc0e3"]
-[ext_resource type="PackedScene" path="res://coin.tscn" id="2_e2o6t"]
+[ext_resource type="Script" uid="uid://cf2lsxca2rtn2" path="res://game.gd" id="1_fc0e3"]
+[ext_resource type="PackedScene" uid="uid://cycvuxoudw54u" path="res://coin.tscn" id="2_e2o6t"]
 
 [node name="Game" type="Node2D"]
 script = ExtResource("1_fc0e3")
@@ -14,7 +14,6 @@ position = Vector2(206, 133)
 position = Vector2(422, 131)
 
 [node name="Timer" type="Timer" parent="."]
-autostart = true
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
@@ -25,5 +24,20 @@ offset_bottom = 23.0
 [node name="Label" type="Label" parent="CanvasLayer/PanelContainer"]
 layout_mode = 2
 text = "  Time Survived: "
+
+[node name="GameOver" type="PanelContainer" parent="CanvasLayer"]
+visible = false
+offset_left = 470.0
+offset_top = 193.0
+offset_right = 712.0
+offset_bottom = 409.0
+
+[node name="Label" type="Label" parent="CanvasLayer/GameOver"]
+layout_mode = 2
+text = "Game Over
+Time Survived: 
+
+Highscore: "
+horizontal_alignment = 1
 
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

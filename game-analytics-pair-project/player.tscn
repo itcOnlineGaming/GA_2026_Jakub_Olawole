@@ -16,18 +16,3 @@ offset_left = -32.0
 offset_top = -32.0
 offset_right = 32.0
 offset_bottom = 32.0
-
-[node name="Timer" type="Timer" parent="."]
-autostart = true
-
-[node name="CanvasLayer" type="CanvasLayer" parent="."]
-
-[node name="PanelContainer" type="PanelContainer" parent="CanvasLayer"]
-offset_right = 56.0
-offset_bottom = 23.0
-
-[node name="Label" type="Label" parent="CanvasLayer/PanelContainer"]
-layout_mode = 2
-text = "  Time Survived: "
-
-[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

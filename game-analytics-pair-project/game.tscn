@@ -1,8 +1,12 @@
-[gd_scene load_steps=2 format=3 uid="uid://ctgiu530qkodh"]
+[gd_scene load_steps=3 format=3 uid="uid://ctgiu530qkodh"]
 
 [ext_resource type="PackedScene" uid="uid://diyboojc6e6wx" path="res://player.tscn" id="1_80nbo"]
+[ext_resource type="PackedScene" uid="uid://cycvuxoudw54u" path="res://coin.tscn" id="2_e2o6t"]
 
 [node name="Game" type="Node2D"]
 
 [node name="Player" parent="." instance=ExtResource("1_80nbo")]
 position = Vector2(206, 133)
+
+[node name="Coin" parent="." instance=ExtResource("2_e2o6t")]
+position = Vector2(422, 131)

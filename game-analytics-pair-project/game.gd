@@ -6,13 +6,17 @@ var time_survived = 0
 var score = 0
 var highscore = 0
 
-var condition = "A"
-var time_between = 4.0
+var condition = "B"
+@export var time_between = 8
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	pass # Replace with function body.
-
+	if randi() % 2 == 0:
+		condition = "A"
+		time_between = 4
+	else:
+		condition = "B"
+		time_between = 8
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:

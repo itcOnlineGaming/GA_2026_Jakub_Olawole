@@ -10,12 +10,15 @@ var timer: Timer
 var timeSurvived = 0
 var speedMutliplier = 1
 
-@export var time_between = 5
+var time_between = 5.0
 @export var mult = 0.01
 
 func _ready() -> void:
 	target = $"../Player"
 	timer = $"../Timer"
+	time_between = get_parent().time_between
+	print(time_between)
+
 
 func _process(delta: float) -> void:
 	if target == null:
@@ -59,3 +62,6 @@ func _on_enemy_timer_timeout() -> void:
 		mult *= 2
 	
 	print(speedMutliplier)
+
+func set_condition(timeBetween: int) -> void:
+	time_between = timeBetween

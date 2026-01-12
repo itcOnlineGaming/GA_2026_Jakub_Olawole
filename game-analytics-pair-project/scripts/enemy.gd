@@ -6,9 +6,16 @@ var target: CharacterBody2D
 @export var speed = 100.0
 @export var slow_distance = 50.0
 
+var timer: Timer
+var timeSurvived = 0
+var speedMutliplier = 1
+
+@export var time_between = 5
+@export var mult = 0.01
+
 func _ready() -> void:
 	target = $"../Player"
-	
+	timer = $"../Timer"
 
 func _process(delta: float) -> void:
 	if target == null:
@@ -23,9 +30,20 @@ func _process(delta: float) -> void:
 			speed += 0.1
 	
 	var direction = (target.global_position - global_position).normalized()
-	position += direction * speed * delta
+	position += direction * speed * speedMutliplier * delta
 
 
 func _on_area_2d_body_entered(body: Node2D) -> void:
 	if body.is_in_group("Player"):
 		get_tree().quit()
+
+
+func _on_enemy_timer_timeout() -> void:
+	timeSurvived = timeSurvived + 1
+	
+	speedMutliplier += mult
+	
+	if timeSurvived % time_between == 0 && timeSurvived != 0:
+		mult *= 2
+	
+	print(speedMutliplier)

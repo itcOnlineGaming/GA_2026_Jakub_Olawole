@@ -1,0 +1,17 @@
+[remap]
+
+importer="csv_translation"
+type="Translation"
+uid="uid://cmy5405yau3i5"
+
+[deps]
+
+files=["res://ab_test_results.condition.translation", "res://ab_test_results.time between.translation", "res://ab_test_results.highscore.translation"]
+
+source_file="res://ab_test_results.csv"
+dest_files=["res://ab_test_results.condition.translation", "res://ab_test_results.time between.translation", "res://ab_test_results.highscore.translation"]
+
+[params]
+
+compress=true
+delimiter=0

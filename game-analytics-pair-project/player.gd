@@ -20,6 +20,6 @@ func _physics_process(delta: float) -> void:
 		Input.get_action_strength("move_down") - Input.get_action_strength("move_up")
 	)
 	
-		velocity = direction * SPEED
+	velocity = direction * SPEED
 
 	move_and_slide()
